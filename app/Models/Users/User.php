@@ -6,6 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Models\Users\Subjects;
 
 use App\Models\Posts\Like;
 use Auth;
@@ -31,6 +32,7 @@ class User extends Authenticatable
         'sex',
         'birth_day',
         'role',
+        'subject',
         'password'
     ];
 

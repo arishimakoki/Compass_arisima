@@ -17,6 +17,7 @@ class PostsController extends Controller
 {
     public function show(Request $request){
         $posts = Post::with('user', 'postComments')->get();
+         $posts = Post::withCount('likes')->orderBy('id', 'desc')->paginate(10);
         $categories = MainCategory::get();
         $like = new Like;
         $post_comment = new Post;
@@ -97,8 +98,15 @@ class PostsController extends Controller
     }
 
     public function postLike(Request $request){
+        $post_id = $request->post_id;
+        $post = Post::findOrFail($post_id);
         Auth::user()->likes()->attach($request->post_id);
-        return response()->json();
+        $postLikesCount = $post->loadCount('likes')->likes_count;
+          $json = [
+            'postLikesCount' => $postLikesCount,
+        ];
+
+        return response()->json($json);
     }
 
     public function postUnLike(Request $request){

@@ -162,7 +162,7 @@
           </select>
           <label style="font-size:13px">日</label>
             @if ($errors->has('old_year'))
-              <li>{{$errors->first('old_year')}}</li>
+                 <li>{{$errors->first('old_year')}}</li>
             @endif
         </div>
         <div class="mt-3">

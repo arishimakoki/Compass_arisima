@@ -9,7 +9,7 @@ $(function () {
     $(this).addClass('un_like_btn');
     $(this).removeClass('like_btn');
     var post_id = $(this).attr('post_id');
-    var count = $('.like_counts' + post_id).text();
+    var count = $('.like_counts' + post_id).html();
     var countInt = Number(count);
     $.ajax({
       headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
@@ -18,10 +18,10 @@ $(function () {
       data: {
         post_id: $(this).attr('post_id'),
       },
-    }).done(function (res) {
-      console.log(res);
-      $('.like_counts' + post_id).text(countInt + 1);
-    }).fail(function (res) {
+    }).done(function (data) {
+      console.log(data);
+      $('.like_counts' + post_id).html(data.postLikesCount);
+    }).fail(function (data) {
       console.log('fail');
     });
   });
@@ -42,9 +42,9 @@ $(function () {
         post_id: $(this).attr('post_id'),
       },
     }).done(function (res) {
-      $('.like_counts' + post_id).text(countInt - 1);
-    }).fail(function () {
-
+      $('.like_counts' + post_id).text(countInt -1);
+    }).fail(function (res) {
+      console.log('fail');
     });
   });
 

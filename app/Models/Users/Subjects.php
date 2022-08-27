@@ -10,12 +10,15 @@ class Subjects extends Model
 {
     const UPDATED_AT = null;
 
-
     protected $fillable = [
-        'subject'
+        'id',
+        'subject',
+        'subjects_id',
+        'updated_at',
+        'user_id'
     ];
 
     public function users(){
-        return $this->belongsToMany('App\Models\Users\User')->withTimestamps();// リレーションの定義
+        return $this->belongsToMany('App\Models\Users\User');// リレーションの定義
     }
 }
