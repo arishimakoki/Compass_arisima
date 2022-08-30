@@ -22,7 +22,7 @@ return [
     'alpha_dash'           => ':attributeはアルファベットとダッシュ(-)及び下線(_)がご利用できます。',
     'alpha_num'            => ':attributeはアルファベット数字がご利用できます。',
     'array'                => ':attributeは配列でなくてはなりません。',
-    'before'               => ':attributeには、:dateより前の日付をご利用ください。',
+    'before'               => ':attributeには、今日より前の日付をご利用ください。',
     'before_or_equal'      => ':attributeには、:date以前の日付をご利用ください。',
     'between'              => [
         'numeric' => ':attributeは、:minから:maxの間で指定してください。',
@@ -165,6 +165,8 @@ return [
     'old_day' => '生年月日',
     'role' => '役職',
     'password' => 'パスワード',
+    'password_confirm' => '確認用パスワード',
+    'birth_day' => '生年月日',
 
     ],
 

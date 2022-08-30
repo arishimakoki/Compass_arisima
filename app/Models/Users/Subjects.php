@@ -11,14 +11,11 @@ class Subjects extends Model
     const UPDATED_AT = null;
 
     protected $fillable = [
-        'id',
-        'subject',
         'subjects_id',
-        'updated_at',
         'user_id'
     ];
 
     public function users(){
-        return $this->belongsToMany('App\Models\Users\User');// リレーションの定義
+        return $this->belongsToMany('App\Models\Users\User','subject_id','user_id');// リレーションの定義
     }
 }
