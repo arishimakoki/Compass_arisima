@@ -49,7 +49,7 @@ class PostFormRequest extends FormRequest
             'old_year' => 'required',
             'old_month' => 'required',
             'old_day' => 'required',
-            'role' => 'required|exists:users,role',
+            'role' => 'required',
             'password' => 'min:8|max:30|required',
             'password_confirm' => 'required|same:password',
         ];

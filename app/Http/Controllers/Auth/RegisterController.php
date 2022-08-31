@@ -61,19 +61,11 @@ class RegisterController extends Controller
     public function registerPost(PostFormRequest  $request )
     {
         DB::beginTransaction();
-        $validator = $this->validator($request);
-                if ($validator->fails()) {
-                    return redirect('register')
-                    ->withErrors($validator)
-                    ->withInput();
-                }
-        try{
             $old_year = $request->old_year;
             $old_month = $request->old_month;
             $old_day = $request->old_day;
             $data = $old_year . '-' . $old_month . '-' . $old_day;
             $birth_day = date('Y-m-d', strtotime($data));
-            $subjects = $request->subject;
             $user_get = User::create([
                 'over_name' => $request->over_name,
                 'under_name' => $request->under_name,
@@ -86,12 +78,11 @@ class RegisterController extends Controller
                 'password' => bcrypt($request->password),
             ]);
             $user = User::findOrFail($user_get->id);
-            $user->subjects()->attach($request->$subjects);
+            $subjects = $request->subject;
+            $user->subjects()->attach($subjects);
+                        dd($user);
+
             DB::commit();
             return view('auth.login.login');
-        }catch(\Exception $e){
-            DB::rollback();
-            return redirect()->route('loginView');
-        }
     }
 }
