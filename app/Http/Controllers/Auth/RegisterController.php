@@ -61,6 +61,7 @@ class RegisterController extends Controller
     public function registerPost(PostFormRequest  $request )
     {
         DB::beginTransaction();
+        try{
             $old_year = $request->old_year;
             $old_month = $request->old_month;
             $old_day = $request->old_day;
@@ -80,9 +81,11 @@ class RegisterController extends Controller
             $user = User::findOrFail($user_get->id);
             $subjects = $request->subject;
             $user->subjects()->attach($subjects);
-                        dd($user);
-
             DB::commit();
             return view('auth.login.login');
+        }catch(\Exception $e){
+            DB::rollback();
+            return redirect()->route('loginView');
+        }
     }
 }

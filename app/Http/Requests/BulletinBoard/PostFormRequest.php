@@ -45,11 +45,11 @@ class PostFormRequest extends FormRequest
             'over_name_kana' => 'required|string|max:30|required|regex:/^[ア-ン゛゜ァ-ォャ-ョー]+$/u',
             'under_name_kana' => 'required|string|max:30|required|regex:/^[ア-ン゛゜ァ-ォャ-ョー]+$/u',
             'mail_address' => 'required|email|max:100|unique:users',
-            'sex' => 'required|exists:users,sex',
+            'sex' => 'numeric|between:1,3|required',
             'old_year' => 'required',
             'old_month' => 'required',
             'old_day' => 'required',
-            'role' => 'required',
+            'role' => 'numeric|between:1,4|required',
             'password' => 'min:8|max:30|required',
             'password_confirm' => 'required|same:password',
         ];

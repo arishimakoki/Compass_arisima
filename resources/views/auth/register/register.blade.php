@@ -74,10 +74,6 @@
           <label style="font-size:13px">女性</label>
           <input type="radio" name="sex" class="sex" value="3">
           <label style="font-size:13px">その他</label>
-          <!--バリデーション確認用 -->
-          <input type="radio" name="sex" class="sex" value="4">
-          <label style="font-size:13px">男女</label>
-
                @if ($errors->has('sex'))
                  <li class="error_message">{{$errors->first('sex')}}</li>
                @endif
@@ -112,8 +108,6 @@
             <option value="2008">2008</option>
             <option value="2009">2009</option>
             <option value="2010">2010</option>
-            <!--バリデーション確認用 -->
-             <option value="2022">2022</option>
           </select>
           <label style="font-size:13px">年</label>
              @if ($errors->has('old_year'))
