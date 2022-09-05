@@ -24,7 +24,7 @@ class Post extends Model
     }
 
     public function subCategories(){
-        // リレーションの定義
+        return $this->belongsTo('App\Models\Categories\SubCategory');// リレーションの定義
     }
 
     // コメント数

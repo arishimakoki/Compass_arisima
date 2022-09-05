@@ -17,7 +17,7 @@ class PostsController extends Controller
 {
     public function show(Request $request){
         $posts = Post::with('user', 'postComments')->get();
-         $posts = Post::withCount('likes')->orderBy('id', 'desc')->paginate(10);
+        $posts = Post::withCount('likes')->orderBy('id', 'desc')->paginate(10);
         $categories = MainCategory::get();
         $like = new Like;
         $post_comment = new Post;
@@ -72,6 +72,14 @@ class PostsController extends Controller
     }
     public function mainCategoryCreate(Request $request){
         MainCategory::create(['main_category' => $request->main_category_name]);
+        return redirect()->route('post.input');
+    }
+
+    public function subCategoryCreate(Request $request){
+        SubCategory::create([
+            'main_category_id' => $request->main_category_id,
+            'sub_category' => $request->sub_category_name
+        ]);
         return redirect()->route('post.input');
     }
 
