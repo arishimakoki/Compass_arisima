@@ -41,7 +41,7 @@ class CalendarView{
         $toDay = $this->carbon->copy()->format("Y-m-d");
 
         if($startDay <= $day->everyDay() && $toDay >= $day->everyDay()){
-          $html[] = '<td class="calendar-td" style="background-color:#ddd;">';
+          $html[] = '<td class="calendar-td" style="background-color:#ddd;>';
         }else{
           $html[] = '<td class="calendar-td '.$day->getClassName().'">';
         }
@@ -64,10 +64,10 @@ class CalendarView{
             $html[] = '<input type="hidden" name="getPart[]" value="" form="reserveParts">';
           }
         }else{
-         //$html[] = $day->selectPart($day->everyDay());
+          //$html[] = $day->selectPart($day->everyDay());
         }
 
-        if($day->everyDay() && $toDay >= $day->everyDay()){
+         if($day->everyDay() && $toDay >= $day->everyDay()){
           $html[] = "受付終了";
         }
 
@@ -77,6 +77,7 @@ class CalendarView{
         }else{
           $html[] = $day->selectPart($day->everyDay());
         }
+
         $html[] = $day->getDate();
         $html[] = '</td>';
       }
