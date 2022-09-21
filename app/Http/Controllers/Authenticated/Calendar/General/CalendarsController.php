@@ -26,7 +26,7 @@ class CalendarsController extends Controller
             $reserveDays = array_filter(array_combine($getDate, $getPart));
             foreach($reserveDays as $key => $value){
                 $reserve_settings = ReserveSettings::where('setting_reserve', $key)->where('setting_part', $value)->first();
-                $reserve_settings->decrement('limit_users',1);
+                $reserve_settings->decrement('limit_users');
                 $reserve_settings->users()->attach(Auth::id());
             }
             DB::commit();
@@ -35,4 +35,12 @@ class CalendarsController extends Controller
         }
         return redirect()->route('calendar.general.show', ['user_id' => Auth::id()]);
     }
+
+        public function delete(Request $request){
+        Post::where('id', $request->post_id)->update([
+            'post_title' => $request->post_title,
+            'post' => $request->post_body,
+        ]);
+        return redirect()->route('calendar.general.show');
+   }
 }
