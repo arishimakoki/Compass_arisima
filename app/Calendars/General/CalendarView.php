@@ -70,7 +70,7 @@ class CalendarView{
           if($startDay <= $day->everyDay() && $toDay >= $day->everyDay()){
           //$html[] = $afterReservePart;
           }else{
-            $html[] = '<button type="submit" getDate="'. $day->authReserveDate($day->everyDay())->first()->setting_reserve .'" getPart="'.$reservePart .'"   class="delete-modal-open btn btn-danger p-0 w-75" name="delete_date" style="font-size:12px" value="'. $day->authReserveDate($day->everyDay())->first()->setting_reserve .'">'. $reservePart .'</button>';
+            $html[] = '<button type="submit" getPart="'.$day->authReserveDate($day->everyDay())->first()->setting_part.'" getDate="'.$day->authReserveDate($day->everyDay())->first()->setting_reserve.'" getDate_modal="'. $day->authReserveDate($day->everyDay())->first()->setting_reserve .'" getPart_modal="'.$reservePart .'"   class="delete-modal-open btn btn-danger p-0 w-75" name="delete_date" style="font-size:12px" value="'. $day->authReserveDate($day->everyDay())->first()->setting_reserve .'">'. $reservePart .'</button>';
             //$html[] = '<input type="hidden" name="getPart[]" value="" form="reserveParts">';
           }
         }else{
@@ -103,7 +103,7 @@ class CalendarView{
     $html[] = '<div class="modal js-modal">';
     $html[] ='<div class="modal__bg js-modal-close"></div>';
     $html[] ='<div class="modal__content">';
-    $html[] = '<form action="/delete/calendar" method="post" id="deleteParts">';
+    $html[] = '<form action= "'.route('deleteParts').'" method="post">';
     $html[] ='<div class="w-100">';
 
     $html[] = '<div class="modal-Date w-50 m-auto">';
@@ -116,14 +116,16 @@ class CalendarView{
     $html[] = '<p>上記の予約をキャンセルしてもよろしいですか？</p>';
     $html[] =  '</div>';
 
-
-    $html[] = '<div class="w-50 m-auto edit-modal-btn d-flex">';
+    $html[] =  '<div class="w-50 m-auto edit-modal-btn d-flex">';
     $html[] =  '<a class="js-modal-close btn btn-danger d-inline-block" href="">閉じる</a>';
-    $html[] =  '<input type="hidden" class="edit-modal-hidden" name="post_id" value="">';
+    $html[] =  '<input type="hidden" class="part-modal-hidden" name="getPart" value="">';
+    $html[] =  '<input type="hidden" class="reserve-modal-hidden" name="getDate" value="">';
+
     $html[] =  '<button type="submit" class="btn btn-primary d-block" value="キャンセル">キャンセル</button>';
 
     $html[] ='</div>';
     $html[] = '</div>';
+    $html[] = csrf_field();
     $html[] ='</form>';
     $html[] ='</div>';
     $html[] ='</div>';
