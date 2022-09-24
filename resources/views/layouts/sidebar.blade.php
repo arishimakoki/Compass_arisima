@@ -16,22 +16,61 @@
 </head>
 
 <body class="all_content">
+ <div id="nav-group">
+   <header>
+    <h1>
+      <a href="{{ route('top.show') }}">
+        <img src="https://lull-compass.com/image/compass-logo.svg" alt="" width="200px">
+      </a>
+    </h1>
+    <nav>
+      <ul>
+        <li >
+        <li  class="current-header" >
+          <a href="{{ route('top.show') }}" data-toggle="tooltip" tooltip="マイページ" flow="down">
+            <img src="https://lull-compass.com/image/icon-default_men.svg" alt="トップ">
+          </a>
+        </li>
+        <li>
+          <a href="/logout" onclick="return checkSubmit('ログアウトしますか？')" data-toggle="tooltip" tooltip="ログアウト" flow="down">
+          <img src="https://lull-compass.com/image/icon/logout.svg" alt="ログアウト">
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+ </div>
   <div class="d-flex">
-    <div class="sidebar">
+    <div class="sidebar" ::-webkit-scrollbar>
+      <ul>
       @section('sidebar')
-      <p><a href="{{ route('top.show') }}">トップ</a></p>
-      <p><a href="/logout">ログアウト</a></p>
-      <p><a href="{{ route('calendar.general.show',['user_id' => Auth::id()]) }}">スクール予約</a></p>
+      <li>
+        <a href="{{ route('calendar.general.show',['user_id' => Auth::id()]) }}">
+        <span> スクール予約</span></a>
+      </li>
       @if(Auth::user()->role <= 3 )
-      <p><a href="{{ route('calendar.admin.show',['user_id' => Auth::id()]) }}">スクール予約確認</a></p>
-      <p><a href="{{ route('calendar.admin.setting',['user_id' => Auth::id()]) }}">スクール枠登録</a></p>
+      <li>
+        <a href="{{ route('calendar.admin.show',['user_id' => Auth::id()]) }}">
+        <span> スクール予約確認</span></a>
+      </li>
+      <li>
+        <a href="{{ route('calendar.admin.setting',['user_id' => Auth::id()]) }}">
+          <span>スクール枠登録</span> </a>
+      </li>
        @endif
-      <p><a href="{{ route('post.show') }}">掲示板</a></p>
-      <p><a href="{{ route('user.show') }}">ユーザー検索</a></p>
+      <li>
+        <a href="{{ route('post.show') }}">
+        <span> 掲示板</span></a>
+      </li>
+      <li>
+        <a href="{{ route('user.show') }}">
+        <span> ユーザー検索</span></a>
+      </li>
       @show
     </div>
     <div class="main-container">
       @yield('content')
+      </ul>
     </div>
   </div>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
