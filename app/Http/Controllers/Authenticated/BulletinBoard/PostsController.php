@@ -13,6 +13,7 @@ use App\Models\Users\User;
 use App\Http\Requests\BulletinBoard\PostFormRequest;
 use App\Http\Requests\BulletinBoard\SubcategoryFormRequest;
 use Auth;
+use DB;
 
 class PostsController extends Controller
 {
@@ -46,17 +47,27 @@ class PostsController extends Controller
     }
 
     public function postInput(){
-        $main_categories = MainCategory::get();
+        $main_categories = MainCategory::with('subCategories')->get();
         return view('authenticated.bulletinboard.post_create', compact('main_categories'));
     }
 
     public function postCreate(PostFormRequest $request){
+    DB::beginTransaction();
+        try{
         $post = Post::create([
             'user_id' => Auth::id(),
             'post_title' => $request->post_title,
             'post' => $request->post_body,
         ]);
+         $post_id = Post::findOrFail($post->id);
+         $sub_category = $request->sub_category_id;
+         $post_id->subCategories()->attach($sub_category);
+        DB::commit();
         return redirect()->route('post.show');
+          }catch(\Exception $e){
+            DB::rollback();
+            return redirect()->route('post.show');
+        }
     }
 
     public function postEdit(Request $request){
