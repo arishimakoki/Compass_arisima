@@ -188,10 +188,19 @@ body {
   height: -moz-min-content;
   height: min-content;
 }
-
 .user_status{
-  border-radius:10px;
-  background:#FFF;
+    width: 75%;
+    border-radius:10px;
+    background:#FFF;
+    display: flex;
+    margin-right: 124px;
+}
+.user_detail {
+  width: 75%;
+  border-radius: 10px;
+  background: #FFF;
+}
+.user_profile {
   display: flex;
   margin-right: 124px;
 }
@@ -200,7 +209,15 @@ body {
   height: auto;
   margin-right: 30px;
 }
+.user_detail img {
+  width: 80px;
+  height: auto;
+  margin-right: 30px;
+}
 .user_status table {
+  width: 460px;
+}
+.user_detail table {
   width: 460px;
 }
 
@@ -376,6 +393,14 @@ body {
 }
 
 /* ユーザー検索 */
+.user-list-card{
+  margin-top: 15px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.user-list-card img{
+  width: 70px;
+}
 .reserve_users_area{
   display:flex;
   flex-wrap:wrap;
@@ -384,8 +409,11 @@ body {
   height:80vh;
   overflow: scroll;
   padding:10px;
-  background:#FFF;
-  border-radius:5px;
+}
+.user-list-bio{
+  margin: 10px 10px 0 10px;
+  width: 100%;
+  border-top: 1px solid #D3D3D3;
 }
 .reserve_users_area span{
   font-size:12px;
@@ -393,17 +421,61 @@ body {
 .one_person{
   width:250px;
   height:250px;
+  background: #FFF;
+  border-radius: 5px;
+  margin: 5px;
+}
+.search_area{
+  padding-left: 50px;
+}
+select {
+  cursor: pointer;
+  border: 2px solid #dee2e6;
+  padding: .375rem .75rem;
+  border-radius: .25rem;
+}
+.search_btn{
+  width: 150px;
+  height: 50px;
+  padding: 10px;
+  margin-top: 30px;
+}
+.reset_btn{
+  margin-top: 10px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  padding: 0;
+  appearance: none;
+  color: #00A4BB;
+  font-size: 18px;
+}
+.search_area h3{
+  color: #404280;
+  margin-left: 20px;
+  margin-top: 50px;
+}
+.free_word{
+  border-radius: 20px;
+  height: 40px;
+  margin-top: 10px;
+}
+.search_area .small{
+  margin-top: 30px;
 }
 .search_conditions span{
   cursor:pointer;
 }
 .search_conditions_inner{
   display:none;
-  background:#FFF;
+  background-color: #ECF1F6;
 }
 .subject_edit_btn{
   font-size:12px;
-  color:#0000FF;
+  background-color:#03AAD2;
+  color: #FFF;
+  border-radius: 10px;
   cursor:pointer;
 }
 .subject_inner{
