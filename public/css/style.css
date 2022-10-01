@@ -284,8 +284,80 @@ body {
 }
 
 /* 掲示板 */
+.border-posts-side{
+  position: fixed;
+}
+.posts-btn{
+  margin-top: 20%;
+  width: 100%;
+}
+.post-search-area{
+  margin-top: 30px;
+  background: none;
+  box-shadow: none;
+  padding: 0;
+  position: sticky;
+}
+.post-search-area button {
+  width: 90px;
+  height: 40px;
+  background-color: #17a2b8;
+  position: fixed;
+}
+.post-search-area i{
+  padding-top: 5px;
+  color: #FFF;
+}
+.post-search-area input{
+  width: 150px;
+  height: 40px;
+}
+.post_button{
+  width: 120px;
+  height: 50px;
+  font-size: 20px;
+}
+.myposts_btn{
+  color: #FFF;
+  margin-top: 20px;
+  width: 120px;
+}
+.iine_btn{
+  margin-top: 20px;
+  width: 120px;
+}
+.category-area label{
+  margin-top: 20px;
+  color: #404280;
+}
+.main_categories{
+  font-size: 18px;
+  color: #494949;
+}
+.category-area input[type="submit"]{
+  -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding: 0;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: #03AAD2;
+    text-decoration: underline;
+    font-size: 15px;
+    display: flex;
+    flex-flow: column;
+    margin-top: 5px;
+    letter-spacing: 0.1em;
+}
 .sub_categories{
   display:none;
+}
+.post_area .text{
+  color: #999;
+}
+.post_area a{
+  color: black;
 }
 .post_create_area{
   background:#FFF;
@@ -305,6 +377,8 @@ body {
 }
 .post_bottom_area{
   justify-content: space-between;
+  width: 20%;
+  margin-left: 80%;
 }
 .like_btn,
 .un_like_btn{
@@ -320,17 +394,22 @@ body {
 }
 
 /* 掲示板 詳細画面 */
+.commentarea{
+  margin-left: 20px;
+}
 .contributor{
   font-size:12px;
   color:#999;
   font-weight:bold;
 }
+.contributor img{
+  width: 70px;
+}
 .detsail_post_title{
   font-size:14px;
 }
 .detsail_post{
-  font-size:12px;
-  color:#9E9E9E;
+  font-size:13px;
 }
 .detail_inner_head{
   display:flex;
@@ -349,6 +428,8 @@ body {
 /* 掲示板 コメント */
 .comment_container{
   background:#FFF;
+  border-radius: 5px;
+  padding: 10px 10px 10px 10px;
 }
 .comment_area p,
 .comment_area input{
@@ -356,7 +437,7 @@ body {
   font-weight:bold;
 }
 .comment_area textarea{
-  height:300px;
+  height:400px;
   resize:none;
 }
 .comment_container span{
@@ -365,7 +446,12 @@ body {
 .post_status span{
   font-size:12px;
 }
-
+.comment_btn{
+  width: 120px;
+  height: 50px;
+  font-size: 20px;
+  margin-top: 10px;
+}
 /* 掲示板　カテゴリー */
 .category_area{
   background:#FFF;
