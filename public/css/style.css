@@ -74,7 +74,7 @@ body {
 }
 /* サイドバー */
 .sidebar{
-  width:150px;
+  width:170px;
   height:100vh;
   background-color:#03AAD2;
   font-weight:bold;
@@ -242,8 +242,13 @@ body {
   font-size:12px;
 }
 
+.day_part{
+  font-size: 15px;
+}
 .day_part a{
   margin-right: 25px;
+  position: relative;
+  margin-left: 25px;
 }
 
 .adjust-table{
@@ -285,6 +290,7 @@ body {
 
 /* 掲示板 */
 .border-posts-side{
+  width: 265px;
   position: fixed;
 }
 .posts-btn{
@@ -299,7 +305,7 @@ body {
   position: sticky;
 }
 .post-search-area button {
-  width: 90px;
+  width: 100px;
   height: 40px;
   background-color: #17a2b8;
   position: fixed;
@@ -309,7 +315,7 @@ body {
   color: #FFF;
 }
 .post-search-area input{
-  width: 150px;
+  width: 160px;
   height: 40px;
 }
 .post_button{
@@ -320,11 +326,11 @@ body {
 .myposts_btn{
   color: #FFF;
   margin-top: 20px;
-  width: 120px;
+  width: 130px;
 }
 .iine_btn{
   margin-top: 20px;
-  width: 120px;
+  width: 130px;
 }
 .category-area label{
   margin-top: 20px;
